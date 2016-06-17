@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Creado por ${Carlos} el día 17/06/2016.
  */
 public class LectorRegistrosDBHelper extends SQLiteOpenHelper{
-    public static final String NOMBRE_BD = "Almazan";
+    public static final String NOMBRE_BD = "Almazan.db";
     public static final int VERSION_BD = 1;
 
     //constructor
