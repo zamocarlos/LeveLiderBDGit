@@ -36,7 +36,7 @@ public class FuenteDatos {
     public static final String CREAR_TABLA_BASES_MEDICION =
             "create table "+NOMBRE_BASES_MEDICION+" (" +
                     ColumnasBasesMedicion.ID_BASES_MEDICION+" "+INT_TYPE+" primary key autoincrement," +
-                    ColumnasBasesMedicion.NOMBRE_BASES_MEDICION+" "+STRING_TYPE+" not null,"+
+                    ColumnasBasesMedicion.NOMBRE_BASES_MEDICION+" "+STRING_TYPE+" not null unique,"+
                     ColumnasBasesMedicion.COTA_BASES_MEDICION+" "+NUMERO_TYPE+" not null,"+
                     ColumnasBasesMedicion.DESCRIPCION_BASES_MEDICION+" "+STRING_TYPE+", "+
                     ColumnasBasesMedicion.ORIGEN_BASES_MEDICION+" "+STRING_TYPE+")";
@@ -52,7 +52,7 @@ public class FuenteDatos {
         baseDatos = openHelper.getWritableDatabase();
     }
 
-    public void guardarFila (String nombre, Long cota) {
+    public void guardarFila (String nombre, Double cota) {
         //Nuestro contenedor de valores
         ContentValues valores = new ContentValues();
 

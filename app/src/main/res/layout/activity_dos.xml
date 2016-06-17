@@ -39,6 +39,21 @@
         android:text="Enviar"
         android:id="@+id/btn_enviar"
         android:layout_gravity="center_horizontal"
-        android:nestedScrollingEnabled="true" />
+        android:nestedScrollingEnabled="true"
+        android:onClick="clickEnviar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nombre"
+        android:id="@+id/txtNombreNuevo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Cota"
+        android:id="@+id/txtCotaNueva" />
 
 </LinearLayout>

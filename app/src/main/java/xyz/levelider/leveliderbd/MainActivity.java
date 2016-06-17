@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     //antes extends AppCompatActivity,
     //en el ejemplo de muestra extinede de ListActivity
     //atributos
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
    //ListView lista;
     EditText eTNombre;
     EditText eTCota;
+    TextView txtNombre, txtCota;
 
     private FuenteDatos fuente_datos;
     //private SimpleCursorAdapter adapter;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         //lista = (ListView)findViewById(R.id.list_view);
         eTNombre = (EditText)findViewById(R.id.et_nombre);
         eTCota = (EditText)findViewById(R.id.et_cota);
+        txtNombre = (TextView)findViewById(R.id.txtNombreNuevo);
+        txtCota = (TextView)findViewById(R.id.txtCotaNueva);
 
         //Crear nuevo objeto FuenteDatos
         fuente_datos = new FuenteDatos(this);
@@ -49,12 +54,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //eventos click
-    public void onClick(View v) {
+    public void clickEnviar(View v) {
+
+        Toast toast = Toast.makeText(this, "Pulsado algún botón", Toast.LENGTH_LONG);
+        toast.show();
         if (v.getId()==R.id.btn_enviar) {
             //Click en enviar
             String nombre=eTNombre.getText().toString();
-            Long cota = Long.parseLong(eTCota.getText().toString());
+            Double cota = Double.parseDouble(eTCota.getText().toString());
             fuente_datos.guardarFila(nombre, cota);
+            txtNombre.setText(nombre);
+            txtCota.setText(cota.toString());
+
             //Refrescando la lista manualmente
             //adapter.changeCursor(fuente_datos.getTodasBasesMedicion());
 
